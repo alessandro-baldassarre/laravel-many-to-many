@@ -9,6 +9,6 @@ class Category extends Model
     protected $fillable = ['name','color'];
 
     public function posts(){
-        return $this->belongsToMany('App\Models\Post');
+        return $this->belongsToMany('App\Models\Post','category_posts');
     }
 }
