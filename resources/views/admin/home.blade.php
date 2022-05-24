@@ -28,6 +28,10 @@
             <p class="mb-4">Show all Posts</p>
             <a href="{{route('admin.posts.index')}}"><span class="icon-option"><i class="fa-solid fa-eye"></i></span></a>
         </div>
+        <div class="col-md-3 text-center">
+            <p class="mb-4">Show all Categories</p>
+            <a href="{{route('admin.categories.index')}}"><span class="icon-option"><i class="fa-solid fa-eye"></i></span></a>
+        </div>
     </div>
 </div>
 @endsection
