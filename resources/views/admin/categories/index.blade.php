@@ -16,8 +16,11 @@
             <div class="col-md-3 my-4">
                 <div class="card h-100 p-2 rounded shadow">
                     <div class="card-body text-center">
-                      <p class="card-text" style="background-color: {{$category->color}}">{{$category->name}}</p>
-                      <a href="{{route('admin.categories.show', $category)}}" class="btn btn-primary">Details</a>
+                        <div class="d-flex justify-content-center">
+                            <p class="card-text mr-2">{{$category->name}}</p>
+                            <span class="tag-color" style="background-color: {{$category->color}}"></span>
+                        </div>
+                        <a href="{{route('admin.categories.show', $category)}}" class="btn btn-primary">Details</a>
                     </div>
                   </div>
             </div>

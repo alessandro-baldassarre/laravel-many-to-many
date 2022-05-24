@@ -21320,3 +21320,10 @@ a span.icon-option {
   margin: 0 auto;
 }
 
+span.tag-color {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  border-radius: 100%;
+}
+
