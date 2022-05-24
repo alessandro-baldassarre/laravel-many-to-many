@@ -30,7 +30,8 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('admin.post.create');
+        $categories = Category::all();
+        return view('admin.post.create', compact('categories'));
     }
 
     /**
@@ -60,6 +61,7 @@ class PostController extends Controller
         $newPost = new Post();
         $newPost->fill($data);
         $newPost->save();
+        $newPost->categories()->attach($data['category']);
 
         return redirect()->route('admin.posts.show', $newPost);
     }
