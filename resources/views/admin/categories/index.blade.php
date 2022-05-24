@@ -11,6 +11,12 @@
             </div>
             @endif
 
+            @if (session('success-message'))
+            <div class="col-12 alert alert-success" role="alert">
+                {{ session('success-message') }}
+            </div>
+            @endif
+
             @foreach ($categories as $category)
 
             <div class="col-md-3 my-4">
