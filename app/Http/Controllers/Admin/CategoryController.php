@@ -30,7 +30,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.categories.create');
     }
 
     /**
@@ -41,7 +41,14 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        $newCategory = new Category();
+        $newCategory->fill($data);
+        $newCategory->save();
+
+        return redirect()->route('admin.categories.index')
+        ->with('success-message', "$newCategory->name è stato aggiunto con successo.");
+
     }
 
     /**
@@ -78,17 +85,21 @@ class CategoryController extends Controller
         $data = $request->all();
         $category->update($data);
 
-        return view('admin.categories.show', compact('category'));
+        return redirect()->route('admin.categories.show', $category);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  Category $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Category $category)
     {
-        //
+        $category->delete();
+
+        // $categories = Category::orderBy('id', 'desc')->paginate(20);
+        return redirect()->route('admin.categories.index')
+        ->with('deleted-message', "$category->name è stato eliminato con successo.");
     }
 }
