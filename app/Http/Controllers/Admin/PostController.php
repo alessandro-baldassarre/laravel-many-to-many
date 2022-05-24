@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Category;
 use App\User;
 use Auth;
 use Illuminate\Support\Str;
@@ -82,7 +83,8 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        return view('admin.post.edit', compact('post'));
+        $categories = Category::all();
+        return view('admin.post.edit', compact('post','categories'));
     }
 
     /**
@@ -107,6 +109,8 @@ class PostController extends Controller
                 "required" => "Non puoi inserire un Post senza :attribute.",
             ]
         );
+
+        $post->categories()->sync($data['category']);
 
         $post->update($data);
         return redirect()->route('admin.posts.show', $post);

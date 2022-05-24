@@ -35,6 +35,21 @@
                         </div>
                     @enderror
                     </div>
+                    <div class="form-group">
+                        <label for="category">Category</label><br>
+                        <select name="category">
+                            @foreach ($categories as $category)
+                                <option value="{{$category->id}}" @if ($post->categories[0] === $category) selected @endif>
+                                    {{$category->name}}
+                                </option>
+                            @endforeach
+                        </select>
+                        @error('photo')
+                        <div class="alert alert-danger mt-2">
+                            {{ $message }}
+                        </div>
+                    @enderror
+                    </div>
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary">Update Post</button>
                     </div>
