@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Database\Seeder;
+use App\Models\CategoryPost;
+use Faker\Generator as Faker;
 
 class CategoryPostSeeder extends Seeder
 {
@@ -9,8 +11,9 @@ class CategoryPostSeeder extends Seeder
      *
      * @return void
      */
-    public function run()
+    public function run(Faker $faker)
     {
-        //
+        factory(CategoryPost::class, 100)->create();
+
     }
 }
