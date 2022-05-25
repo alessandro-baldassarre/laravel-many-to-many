@@ -13,7 +13,7 @@ class CategoryPostSeeder extends Seeder
      */
     public function run(Faker $faker)
     {
-        factory(CategoryPost::class, 300)->create();
+        factory(CategoryPost::class, 600)->create();
 
     }
 }

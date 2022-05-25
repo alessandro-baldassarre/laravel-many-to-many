@@ -13,7 +13,7 @@ $factory->define(CategoryPost::class, function (Faker $faker) {
     $post_ids = Post::pluck('id')->toArray();
 
     return [
-        'category_id'=> $faker->randomElement($category_ids),
-        'post_id'=> $faker->unique()->randomElement($post_ids),
+        'category_id'=>$faker->randomElement($category_ids),
+        'post_id'=> $faker->randomElement($post_ids),
     ];
 });
